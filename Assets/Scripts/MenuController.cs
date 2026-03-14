@@ -5,8 +5,10 @@ public class MenuController : MonoBehaviour
 {
     public void StartGame()
     {
-        // Clear any previous scores
-        PlayerPrefs.SetInt("Score", 0);
+        if (GameManager.Instance != null)
+        {
+            GameManager.Instance.ResetGame();
+        }
 
         SceneManager.LoadScene("GameScene");
     }
